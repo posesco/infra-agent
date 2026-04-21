@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRE-Gen | Autonomous Infrastructure Architect</title>
+    <title>SRE-Gen | Autonomous Architect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Decoración de Fondo -->
+    <svg class="floating-svg" style="top: 10%; left: 5%; width: 300px;" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="80" stroke="#00f2ff" stroke-width="0.5" fill="none" />
+    </svg>
+    <svg class="floating-svg" style="bottom: 10%; right: 5%; width: 400px; animation-delay: -2s;" viewBox="0 0 200 200">
+        <rect x="50" y="50" width="100" height="100" stroke="#7000ff" stroke-width="0.5" fill="none" transform="rotate(45 100 100)" />
+    </svg>
+
     <header>
-        <nav>
-            <div class="logo">SRE-Gen</div>
-            <a href="https://github.com/posesco/infra-agent" class="btn-primary">View on GitHub</a>
-        </nav>
+        <div class="logo">SRE_GEN.v2</div>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Infrastructure as Code, <span class="gradient">Reimagined.</span></h1>
-            <p>Autonomous, cost-optimized, and secure infrastructure generation for modern teams.</p>
+            <h1>Infrastructure <br>at Light Speed.</h1>
+            <p>Autonomous AI architect that transforms requirements into production-ready cloud ecosystems in seconds.</p>
+            <div class="cta-container">
+                <a href="https://github.com/posesco/infra-agent" class="btn-neon">Deploy Agent</a>
+            </div>
         </section>
 
-        <section class="bento-grid">
-            <div class="card card-wide"><h3>Intelligent Generation</h3><p>Industry-standard architecture powered by AI.</p></div>
-            <div class="card"><h3>Cost-Aware</h3><p>Automatic ARM migration for 20% savings.</p></div>
-            <div class="card"><h3>Secure</h3><p>Native Checkov integration.</p></div>
-            <div class="card"><h3>Modern</h3><p>Native S3 locking for OpenTofu/Terraform.</p></div>
+        <section class="features">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <h3>Intelligent IaC</h3>
+                    <p>Precise Terraform blueprints generated with enterprise-grade standards and zero-drift logic.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h3>Hardened Security</h3>
+                    <p>Native vulnerability scanning and encryption-by-default policies in every deployment.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Financial Ops</h3>
+                    <p>Integrated cost-awareness that prioritizes high-performance, low-cost ARM resources automatically.</p>
+                </div>
+            </div>
         </section>
     </main>
+
+    <footer style="text-align: center; padding: 100px 20px; color: var(--text-dim); font-size: 0.9rem; font-weight: 300; letter-spacing: 1px;">
+        PROTOTYPE V2.0 // CORE: GEMINI_FLASH // SRE_SPECIALIST_APPROVED
+    </footer>
 </body>
 </html>
