@@ -1,35 +1,34 @@
+import os
 import json
 import logging
-from typing import Dict
+import google.generativeai as genai
+from src.utils.logger import get_logger
 
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+logger = get_logger("SRE-Gen")
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 class SREGenAgent:
     def __init__(self):
+        self.model = genai.GenerativeModel('gemini-1.5-flash')
         self.output_file = "main.tf.json"
 
-    def interact(self):
-        print("--- SRE-Gen Interactive Mode ---")
-        cloud = input("Preferred Cloud (AWS/GCP): ")
-        service = input("Service Name: ")
-        budget = input("Budget Sensitive? (y/n): ")
+    def interact(self, prompt: str):
+        logger.info("Generating infrastructure via Gemini...")
+        response = self.model.generate_content(
+            f"Generate a terraform main.tf.json for: {prompt}. "
+            "Use industry standards (AWS, cost-aware t4g, multi-az). "
+            "Return ONLY JSON."
+        )
         
-        config = {
-            "provider": {cloud.lower(): {"region": "eu-west-1"}},
-            "resource": {
-                f"{cloud.lower()}_instance": {
-                    "app": {
-                        "name": service,
-                        "type": "t3.small" if budget.lower() == 'y' else "t3.medium"
-                    }
-                }
-            }
-        }
+        # Extraer JSON de la respuesta (limpieza básica)
+        clean_json = response.text.replace("", "").strip()
+        config = json.loads(clean_json)
         
         with open(self.output_file, "w") as f:
             json.dump(config, f, indent=2)
-        print(f"Configuration generated: {self.output_file}")
+        logger.info(f"Configuration generated: {self.output_file}")
 
 if __name__ == "__main__":
     agent = SREGenAgent()
-    agent.interact()
+    # Ejemplo de uso
+    agent.interact("Production web server in AWS")
