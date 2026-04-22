@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | SRE-Gen Architect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Decoración de Fondo -->
+    <svg class="floating-svg" style="top: 20%; right: 10%; width: 250px;" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="80" stroke="#7000ff" stroke-width="0.5" fill="none" />
+    </svg>
+    <svg class="floating-svg" style="bottom: 15%; left: 10%; width: 350px; animation-delay: -3s;" viewBox="0 0 200 200">
+        <rect x="50" y="50" width="100" height="100" stroke="#00f2ff" stroke-width="0.5" fill="none" transform="rotate(15 100 100)" />
+    </svg>
+
+    <header>
+        <div class="logo">SRE_GEN.v2</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 style="color: var(--neon-purple); filter: drop-shadow(0 0 20px rgba(112, 0, 255, 0.3));">404</h1>
+            <p style="margin-top: -20px; text-transform: uppercase; letter-spacing: 5px; font-weight: 600;">Resource Drift Detected</p>
+            <p style="font-size: 1.1rem; margin-bottom: 40px;">The endpoint you are looking for does not exist in the current state or has been decommissioned.</p>
+            
+            <div class="cta-container">
+                <a href="index.html" class="btn-neon">Re-route to Base</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 100px 20px; color: var(--text-dim); font-size: 0.9rem; font-weight: 300; letter-spacing: 1px;">
+        STATUS: ERR_RESOURCE_NOT_FOUND // TRACE_ID: 404_DRIFT_01
+    </footer>
+</body>
+</html>
