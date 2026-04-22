@@ -25,9 +25,17 @@ class SREGenAgent:
             "Standards: AWS, cost-aware (t4g/ARM), multi-AZ, encryption at rest. "
             "Return ONLY raw JSON."
         )
-        response = self.model.generate_content(f"{system_instruction}\n\nUSER: {user_input}")
-        config = json.loads(response.text.replace("```json", "").replace("```", "").strip())
+        response = self.model.generate_content(
+            f"{system_instruction}\n\nUSER: {user_input}",
+            generation_config=genai.types.GenerationConfig(response_mime_type="application/json")
+        )
         
+        try:
+            config = json.loads(response.text.strip())
+        except json.JSONDecodeError as e:
+            logger.error(f"Failed to parse JSON: {e}\nRaw output: {response.text}")
+            return
+            
         with open(self.output_file, "w") as f:
             json.dump(config, f, indent=2)
         logger.info("Infra generated.")
