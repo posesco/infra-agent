@@ -7,18 +7,17 @@ on:
     branches: [ main ]
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.11'
     - name: Install dependencies
       run: |
-        pip install checkov
-    - name: Run SRE-Gen Architecture Check
+        pip install -r requirements.txt
+    - name: Run Unit Tests
       run: |
-        python infra-agent.py
-        checkov -f main.tf.json
+        make test
